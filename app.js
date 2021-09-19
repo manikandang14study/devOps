@@ -6,7 +6,9 @@ const port = process.env.PORT || 8000
 const client = redis.createClient({
     host: "redis-server", port: 6379
 });
-client.set('visits', 0)
+
+client.set('visits', 0);
+
 app.get('/', (req, res) => {
     // process.exit(0);
     client.get('visits', (err, val) => {
